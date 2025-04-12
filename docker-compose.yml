@@ -1,0 +1,13 @@
+services:
+  minecraft:
+    build: .
+    container_name: minecraft-server
+    image: gouineblade/minecraft-server:latest
+    ports:
+      - "${HOST_PORT}:${CONTAINER_PORT}"
+    volumes:
+      - ${VOLUME_PATH}:/server
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    cpus: 4
